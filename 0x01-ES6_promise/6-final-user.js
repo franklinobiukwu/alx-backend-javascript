@@ -14,12 +14,13 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
             value: response.value
           };
         }
-        else if(response.status === 'rejected') {
+        if (response.status === 'rejected') {
           return {
             status: response.status,
             reason: response.reason
           };
         }
+        return response;
       });
       return arr;
     });
