@@ -8,19 +8,19 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
   return Promise.allSettled([user, photo])
     .then((responses) => {
       const arr = responses.map((response) => {
+        let val;
         if (response.status === 'fulfilled') {
-          return {
+          val = {
             status: response.status,
             value: response.value
           };
-        }
-        if (response.status === 'rejected') {
-          return {
+        } else if (response.status === 'rejected') {
+          val = {
             status: response.status,
             reason: response.reason
           };
         }
-        return response;
+        return val;
       });
       return arr;
     });
