@@ -5,7 +5,7 @@ export default class Pricing {
     if (!(currency instanceof Currency)) {
       throw new TypeError('Currency must be a valid currency');
     }
-    if (typeof amount !== 'number' || isNaN(amount)) {
+    if (typeof amount !== 'number' || amount.isNaN) {
       throw new TypeError('Amount must be a number');
     }
     this._amount = amount;
@@ -17,7 +17,7 @@ export default class Pricing {
   }
 
   set amount(value) {
-    if (typeof amount !== 'number' || isNaN(value)) {
+    if (typeof amount !== 'number' || value.isNaN) {
       throw new TypeError('Amount must be a number');
     }
     this._amount = value;
