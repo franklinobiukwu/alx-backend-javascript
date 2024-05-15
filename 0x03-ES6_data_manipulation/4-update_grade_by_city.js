@@ -3,14 +3,12 @@ const updateStudentGradeByCity = (studentsList, city, newGrades) => {
   const cityStudents = studentsList.filter((student) => student.location === city);
 
   const newList = cityStudents.map((student) => {
-    newGrades.forEach((grade) => {
-      if (student.id === grade.studentId) {
-        student.grade = grade.grade;
-      }
+    const studentCopy = { ...student };
+    const matchedStudent = newGrades.find((grade) => student.id === grade.studentId);
 
-      if (!student.hasOwnProperty('grade')) { student.grade = 'N/A'; }
-    });
-    return student;
+    studentCopy.grade = matchedStudent ? matchedStudent.grade : 'N/A';
+
+    return studentCopy;
   });
 
   return newList;
