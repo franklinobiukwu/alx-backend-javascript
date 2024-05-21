@@ -1,5 +1,5 @@
 const cleanSet = (set, startString) => {
-  if (!startString) return '';
+  if (!startString || !startString.length || typeof startString !== 'string') return '';
   // function that returns a string of all the set values that start with a specific string
   const arr = [...set];
   // filter array element
