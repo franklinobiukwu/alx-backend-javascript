@@ -1,15 +1,12 @@
 // eslint-disable-next-line consistent-return
 const updateUniqueItems = (map) => {
   if (!(map instanceof Map)) {
-    throw new Error("Cannot process")
+    throw new Error('Cannot process');
   }
-  const array = Array.from(map);
-  const newArray = array.map((item) => {
-    const itemCopy = [...item];
-    if (item[1] === 1) itemCopy[1] = 100;
-    return itemCopy;
-  });
-
-  return new Map(newArray);
+  for (const [key, value] of map) {
+    if (value === 1) {
+      map.set(key, 100);
+    }
+  }
 };
 export default updateUniqueItems;
