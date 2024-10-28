@@ -1,0 +1,5 @@
+# Add sensitive files to .gitignore
+node_modules/
+*.csv
+*.key
+*.pem
