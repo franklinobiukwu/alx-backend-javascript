@@ -14,7 +14,7 @@ const fs = require('fs');
 const countStudents = (path) => {
   try {
     const data = fs.readFileSync(path, 'utf8').trim();
-    const dataInArray = data.split('\n').filter(line => line); // Filter out empty lines
+    const dataInArray = data.split('\n').filter((line) => line); // Filter out empty lines
     const listOfStudents = dataInArray.slice(1); // skip header line
 
     console.log(`Number of students: ${listOfStudents.length}`);
@@ -22,8 +22,8 @@ const countStudents = (path) => {
     const courseData = {};
 
     // Process each student entry
-    listOfStudents.forEach(student => {
-      const studentData = student.split(',').map(field => field.trim());
+    listOfStudents.forEach((student) => {
+      const studentData = student.split(',').map((field) => field.trim());
       const studentName = studentData[0];
       const studentCourse = studentData[studentData.length - 1];
 
@@ -35,7 +35,7 @@ const countStudents = (path) => {
     });
 
     // Output results for each course
-    Object.keys(courseData).forEach(course => {
+    Object.keys(courseData).forEach((course) => {
       const { count, students } = courseData[course];
       console.log(`Number of students in ${course}: ${count}. List: ${students.join(', ')}`);
     });
