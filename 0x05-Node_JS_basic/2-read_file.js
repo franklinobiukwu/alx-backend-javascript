@@ -40,7 +40,7 @@ const countStudents = (path) => {
       console.log(`Number of students in ${course}: ${count}. List: ${students.join(', ')}`);
     });
   } catch (err) {
-    console.error('Cannot load the database');
+    throw Error('Cannot load the database');
   }
 };
 
